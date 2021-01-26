@@ -1,5 +1,3 @@
-import Home from "./Home";
-
 const BlogList = ({blogs,title,handleDelete })=>{
 
     return(
@@ -14,5 +12,5 @@ const BlogList = ({blogs,title,handleDelete })=>{
             ))}
         </div>
     )
-}
+}   
 export default BlogList;
