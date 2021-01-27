@@ -4,6 +4,7 @@ import BlogList from './BlogList'
 const Home = () => {
     const [fliter,setFilter]= useState('binura')
     const [name,setName]= useState('binura')
+    const [isPending,setIsPending]= useState(true)
 
     // const [blogs, setBlogs] = useState([
     //         { title: 'My new website', body: 'lorem ipsum...', author: 'my', id: 1 },
@@ -30,6 +31,7 @@ const Home = () => {
             })
             .then(data =>{
                 setBlogs(data)
+                setIsPending(false)
             })
         console.log('use effect');
 
@@ -39,6 +41,7 @@ const Home = () => {
             <div className="home">
                 <button onClick={filter}>filter</button>
                 <button onClick={()=>setName('buruwa')}>filter</button>
+                {isPending && <div>Loading.....</div>}
                 {blogs && <BlogList blogs={blogs} title="All Blogs" handleDelete={handleDelete}/>}
                 { blogs && <BlogList blogs={blogs.filter((blog) => blog.author === 'my')} title="My Blogs"
                            handleDelete={handleDelete}/>}
